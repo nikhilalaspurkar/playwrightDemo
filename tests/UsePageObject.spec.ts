@@ -5,7 +5,7 @@ import {faker} from "@faker-js/faker";
 
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:4200/pages/iot-dashboard');
+    await page.goto('http://localhost:4200/pages/iot-dashboard'); //open the url
 })
 
 test("click on forms", async ({ page }) => {
