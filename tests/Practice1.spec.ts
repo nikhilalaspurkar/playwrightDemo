@@ -6,16 +6,16 @@ test.describe("rahul shetty academy", () => {
         await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
     })
 
-    test("click on radio button", async ({ page }) => {
+    test.only("click on radio button", async ({ page }) => {
         //radio button method
         const practicepage = new Practicepage(page);
         await practicepage.radiobuttonclick();
     })
 
-    test.only("handle new window", async ({ page }) => {
+    test("handle new window", async ({ page }) => {
         const [newtab] = await Promise.all([
             page.waitForEvent("popup"),
-            page.locator('#openwindow').click(),
+            page.locator("//a[@id='opentab']").click(),
         ]);
 
         await newtab.waitForLoadState("load");
@@ -25,4 +25,10 @@ test.describe("rahul shetty academy", () => {
 
     })
 
+})
+test.afterEach(async({page}, testInfo)=>{
+ if(testInfo.status=='failed')
+ {
+  await page.screenshot({path: 'Screenshot/onfailuer.png'});  
+ }
 })

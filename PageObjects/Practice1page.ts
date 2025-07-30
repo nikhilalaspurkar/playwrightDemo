@@ -6,6 +6,7 @@ export class Practicepage{
     readonly newwindowbutton: Locator;
     readonly opentab: Locator;
     readonly accescourse: Locator;
+    readonly dropdown: Locator;
 
     constructor (page:Page)
     {
@@ -14,20 +15,20 @@ export class Practicepage{
         this.newwindowbutton= this.page.locator("#openwindow");
         this.accescourse= this.page.locator('//div[@class="button float-left"]');
         this.opentab= this.page.locator('#openwindow');
+        this.dropdown= this.page.locator('#dropdown-class-example');
+
     }
 
     async radiobuttonclick()
     {
         await this.radiobutton.click();
         await expect(this.page.getByText("Practice Page")).toBeVisible();
+        await this.dropdown.click();
+        await this.dropdown.selectOption({index: 2});
     }
     async newwindowyab()
     {
-        await this.newwindowbutton.click();
-        this.page.waitForEvent;
-        // const newpage= await pagePromise;
-        console.log(await this.page.title());
-        await this.accescourse.click();
+        
 
     }
 }

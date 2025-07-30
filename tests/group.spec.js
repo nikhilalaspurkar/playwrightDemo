@@ -1,5 +1,8 @@
 import test from "@playwright/test";
 
+// test.beforeAll("use before all", ( )=> {
+//     console.log("before all executed");
+// })
 test.describe("smoke testing", ()=>{
 
     test ('Test1', async ({page}) => {
